@@ -1,0 +1,12 @@
+---
+applications:   
+- name: mongodb-mqtt-demo
+  memory: 128M
+  disk_quota: 128M
+  instances: 1
+  buildpack: nodejs_buildpack
+  health-check-type: http
+  timeout: 30
+  services:
+   - mongodb
+   - rabbitmq
