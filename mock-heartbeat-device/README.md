@@ -15,4 +15,4 @@ Open a terminal in the folder.
     
 ## Results
 
-![mock_data](https://imgur.com/sGloM8g)
+[Imgur](https://i.imgur.com/sGloM8g.png)
