@@ -103,7 +103,9 @@ const heartbeat = mongoose.model('heartbeat', hbtSchema);
 
 **NOTE**: This part creates the schema of the data.
 
-**NOTE**:
+**NOTE**: Remember to include the entry **'ts'**, which is timestamp. 
+
+This is crucial for future work, so that we could set up the MongoDB data source for WISE-PaaS Dashboard. 
 
 #### Part 4. Subscribe to a topic and listen
 
@@ -112,10 +114,10 @@ const client = mqtt.connect(mqttUri);
 
 // Subscribe
 client.on('connect', (connack) => {
-  client.subscribe('livingroom/temperature', (err, granted) => {
+  client.subscribe('ward/heartbeat', (err, granted) => {
     if (err) console.log(err);
 
-    console.log('@' + formatTime() + ' -- Subscribed to the topic: livingroom/temperature');
+    console.log('@' + formatTime() + ' -- Subscribed to the topic: ward/heartbeat');
   });
 });
 
@@ -124,17 +126,19 @@ client.on('message', (topic, message, packet) => {
   let time = formatTime();
   console.log(`@${time} -- Got data from: ${topic}`);
 
-  // mock temperature data
-  const temp = message.toString();
+  // mock heartbeat data
+  const hbt = message.toString();
+  const newHbt = new heartbeat({
+    heartbeat: hbt
+  });
 
-  const queryString = 'INSERT INTO livingroom.temperature(temperature) VALUES($1) RETURNING *';
-  const values = [temp];
-
-  pool.query(queryString, values)
-    .then(result => {
-      console.log('Data added: ', result['rows'][0]);
-    })
-    .catch(err => console.error('Error adding data...', err.stack));
+  newHbt.save(function(err){
+    if(err){
+      console.log(err);
+    }else{
+      console.log('saved');
+    }
+  });
 });
 ```
 
