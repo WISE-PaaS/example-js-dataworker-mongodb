@@ -1,3 +1,3 @@
-# Edge-Mock-Temperature
+# Edge-Mock-Heartbeat
 
-This app keeps publishing mock temperature data through WISE-PaaS IoT-Hub to simulate the edge sensor.
+This app keeps publishing mock heartbeat data through WISE-PaaS IoT-Hub to simulate the edge sensor.
