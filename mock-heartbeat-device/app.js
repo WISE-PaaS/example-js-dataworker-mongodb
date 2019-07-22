@@ -6,6 +6,7 @@ const mqttUri = 'mqtt://f456d95d-b76f-43e9-8b35-bac8383bf941%3A4ba10620-0b77-4a4
 // Use mqttUri or connectOpts
 const client = mqtt.connect(mqttUri);
 
+// Publish mock data periodically
 client.on('connect', (connack) => {
   setInterval(() => {
     publishMockHbt();
