@@ -47,11 +47,11 @@ Paste your route on a browser to check your results.
 
 You should get this:
 
-![Imgur](https://i.imgur.com/jGc4jZQ.png)
+![Imgur](https://i.imgur.com/VgcSrEP.png)
 
 Under the home route, you would get some text.
 
-And under the "/temps" route, you would see the data queried from the database. 
+And under the "/hbts" route, you would see the data queried from the database. 
 
 If you don't have any data yet, you would just see an empty array.
 
