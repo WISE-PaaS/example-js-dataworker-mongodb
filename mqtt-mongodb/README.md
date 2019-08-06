@@ -6,7 +6,7 @@ This app listens to a topic on the IoT-Hub and saves the received data to the Mo
 
 **STEP 1** Login to WISE-PaaS via command line **`cf login`** with your **domain**, **username** & **password**.
 
-![Imgur](https://i.imgur.com/uEBf2Sk.png)
+![Imgur](https://i.imgur.com/jngL6ki.png)
 
 **STEP 2** Push the app
 
